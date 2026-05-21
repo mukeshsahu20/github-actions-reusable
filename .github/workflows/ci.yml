@@ -31,3 +31,4 @@ jobs:
       - run:  echo Deploy
       - name: Deploy
         run:  make component=${{ inputs.component_name }} env=dev
+
