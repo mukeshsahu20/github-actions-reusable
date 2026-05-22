@@ -43,3 +43,24 @@ jobs:
           make component=${{ inputs.component_name }} env=dev
 
 
+  QA-Deployment:
+    runs-on: ubuntu-latest
+    needs: Dev-Deployment
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - run:  echo Deploy
+      - name: Deploy
+        run: |
+          make component=${{ inputs.component_name }} env=dev
+
+  PROD-Deployment:
+    runs-on: ubuntu-latest
+    needs: QA-Deployment
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - run:  echo Deploy
+      - name: Deploy
+        run: |
+          make component=${{ inputs.component_name }} env=dev
