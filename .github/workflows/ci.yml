@@ -1,7 +1,7 @@
 name: Common CI
 on:
   workflow_call:
-    input:
+    inputs:
       common_name:
         required: true
         type: string
